@@ -45,7 +45,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: "Hello World"
+    - run: echo "Hello World"
       shell: bash
     - uses: the-iron-bank-of-braavos/workflow-dispatch-action@main
       with:
