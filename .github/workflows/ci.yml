@@ -16,7 +16,6 @@ on:
 jobs: 
   test-remote-dispatch:
     name: Test remote dispatch
-    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
