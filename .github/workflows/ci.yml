@@ -25,6 +25,6 @@ jobs:
         with:
           token: ${{ secrets.USER_PAT }}
           repository: the-iron-bank-of-braavos/poc-actions
-          ref: refs/heads/master
+          ref: master
           workflow: remote-nested-workflow.yml
           inputs: "{\"name\":\"Santander Remote Command Line User\", \"home\":\"CLI\" }"
