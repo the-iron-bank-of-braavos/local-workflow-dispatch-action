@@ -45,9 +45,9 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: echo "Hello World"
-      shell: bash
     - run: curl https://raw.githubusercontent.com/${{ inputs.repository }}/${{ inputs.ref }}/.github/workflows/${{ inputs.workflow }}?token=${{ inputs.token }} -o .github/workflows/${{ inputs.workflow }}
+      shell: bash
+    - run: cat .github/workflows/${{ inputs.workflow }}
       shell: bash
     - uses: the-iron-bank-of-braavos/workflow-dispatch-action@main
       with:
