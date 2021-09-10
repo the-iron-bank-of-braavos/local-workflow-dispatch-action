@@ -43,8 +43,17 @@ inputs:
         App Client Secret. Default: empty. This field is optional, required if you don't want to use personal access token and you prefer to use App Credentials.
     default: ''
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: 'composite'
+  steps:
+    - run: "Hello World"
+      shell: bash
+    - use: the-iron-bank-of-braavos/workflow-dispatch-action@main
+      with:
+        token: ${{ inputs.token }}
+        repository: ${{ inputs.repository }}
+        ref: ${{ inputs.ref }}
+        workflow: ${{ inputs.ref }}
+        inputs: ${{ inputs.inputs }}
 branding:
   icon: 'target'
   color: 'gray-dark'

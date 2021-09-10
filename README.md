@@ -1,4 +1,4 @@
-# Workflow Dispatch Action
+# Local Workflow Dispatch Action
 
 <!-- END: This section should be removed after revission-->
 
