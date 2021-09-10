@@ -47,7 +47,7 @@ runs:
   steps:
     - run: "Hello World"
       shell: bash
-    - use: the-iron-bank-of-braavos/workflow-dispatch-action@main
+    - uses: the-iron-bank-of-braavos/workflow-dispatch-action@main
       with:
         token: ${{ inputs.token }}
         repository: ${{ inputs.repository }}
