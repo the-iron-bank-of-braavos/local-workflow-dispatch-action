@@ -45,7 +45,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: curl https://raw.githubusercontent.com/${{ inputs.repository }}/${{ inputs.ref }}/.github/workflows/${{ inputs.workflow }}?token=${{ inputs.token }} -o .github/workflows/${{ inputs.workflow }}
+    - run: curl https://raw.githubusercontent.com/${{ inputs.repository }}/${{ inputs.ref }}/.github/workflows/${{ inputs.workflow }}?token=${{ GITHUB_TOKEN }} -o .github/workflows/${{ inputs.workflow }}
       shell: bash
     - run: cat .github/workflows/${{ inputs.workflow }}
       shell: bash
