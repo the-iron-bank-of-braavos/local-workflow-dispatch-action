@@ -52,7 +52,7 @@ runs:
         token: ${{ inputs.token }}
         repository: ${{ inputs.repository }}
         ref: ${{ inputs.ref }}
-        workflow: ${{ inputs.ref }}
+        workflow: ${{ inputs.workflow }}
         inputs: ${{ inputs.inputs }}
 branding:
   icon: 'target'
