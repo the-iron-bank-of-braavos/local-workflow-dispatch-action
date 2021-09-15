@@ -48,7 +48,7 @@ runs:
   using: 'composite'
   steps:
     - run: |
-        curl https://raw.githubusercontent.com/${{ inputs.repository }}/${{ inputs.ref }}/.github/workflows/${{ inputs.workflow }}?token=${{ inputs.token }} -o .github/workflows/${{ inputs.workflow }}
+        curl -H 'Authorization: token ${{ inputs.token }}' https://raw.githubusercontent.com/${{ inputs.repository }}/${{ inputs.ref }}/.github/workflows/${{ inputs.workflow }} -o .github/workflows/${{ inputs.workflow }}
         cat .github/workflows/${{ inputs.workflow }}
       shell: bash
     - uses: the-iron-bank-of-braavos/workflow-dispatch-action@main
