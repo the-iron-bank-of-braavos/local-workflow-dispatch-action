@@ -22,10 +22,8 @@ jobs:
       - run: git pull origin ${{ github.ref }}
       - name: Test remote workflow dispatch
         uses: ./
-        env: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.USER_PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           repository: the-iron-bank-of-braavos/poc-actions
           ref: master
           workflow: remote-nested-workflow.yml
