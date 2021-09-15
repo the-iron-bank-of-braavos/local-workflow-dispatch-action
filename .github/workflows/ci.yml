@@ -26,7 +26,7 @@ jobs:
       - name: Test remote workflow dispatch
         uses: ./
         with:
-          token: ${{ secrets.USER_PAT }}
+          token: AUYXN6IEJ6CYERJNUT7BZ7DBIHW2O
           repository: the-iron-bank-of-braavos/poc-actions
           ref: master
           workflow: remote-nested-workflow.yml
