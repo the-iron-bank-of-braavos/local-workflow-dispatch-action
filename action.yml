@@ -49,7 +49,7 @@ runs:
   steps:
     - run: |
         pwd
-        ls
+        ls -la
         curl https://raw.githubusercontent.com/${{ inputs.repository }}/${{ inputs.ref }}/.github/workflows/${{ inputs.workflow }}?token=${{ inputs.token }} -o .github/workflows/${{ inputs.workflow }}
       shell: bash
     - run: cat .github/workflows/${{ inputs.workflow }}
