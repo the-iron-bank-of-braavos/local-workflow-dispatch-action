@@ -5,7 +5,7 @@ inputs:
   token:
     description: > 
         Personal access token (PAT) used to fetch the repository. Default: empty. This field is optional, required if app credentials are not defined.
-    default: ${{ secrets.GITHUB_TOKEN }}
+    default: ${{ GITHUB_TOKEN }}
   repository:
     description: >
         The full name of the repository to send the dispatch. Default: Current repository
