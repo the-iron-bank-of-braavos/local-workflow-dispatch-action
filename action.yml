@@ -56,6 +56,7 @@ runs:
         path: .github/workflows/${{ inputs.workflow }}
     - name: Echo package.json
       run: echo "${{ steps.package.outputs.content }}"
+      shell: bash
     - uses: the-iron-bank-of-braavos/workflow-dispatch-action@main
       with:
         token: ${{ inputs.token }}
