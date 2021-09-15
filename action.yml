@@ -5,7 +5,7 @@ inputs:
   token:
     description: > 
         Personal access token (PAT) used to fetch the repository. Default: empty. This field is optional, required if app credentials are not defined.
-    default: ''
+    default: ${{ secrets.GITHUB_TOKEN }}
   repository:
     description: >
         The full name of the repository to send the dispatch. Default: Current repository
@@ -43,13 +43,11 @@ inputs:
         App Client Secret. Default: empty. This field is optional, required if you don't want to use personal access token and you prefer to use App Credentials.
     default: ''
     
-env: 
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
-    
+
 runs:
   using: 'composite'
   steps:
-    - run: curl https://raw.githubusercontent.com/${{ inputs.repository }}/${{ inputs.ref }}/.github/workflows/${{ inputs.workflow }}?token=${{ GITHUB_TOKEN }} -o .github/workflows/${{ inputs.workflow }}
+    - run: curl https://raw.githubusercontent.com/${{ inputs.repository }}/${{ inputs.ref }}/.github/workflows/${{ inputs.workflow }}?token=${{ inputs.token }} -o .github/workflows/${{ inputs.workflow }}
       shell: bash
     - run: cat .github/workflows/${{ inputs.workflow }}
       shell: bash
