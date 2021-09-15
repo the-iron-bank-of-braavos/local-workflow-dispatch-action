@@ -28,3 +28,4 @@ jobs:
           ref: master
           workflow: remote-nested-workflow.yml
           inputs: "{\"name\":\"Santander Remote Command Line User\", \"home\":\"CLI\" }"
+        env: GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
