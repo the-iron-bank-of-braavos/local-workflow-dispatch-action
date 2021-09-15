@@ -51,7 +51,7 @@ runs:
       shell: bash
     - run: |
         pwd
-        ls -la
+        ls -la .github/workflows/
         cat .github/workflows/${{ inputs.workflow }}
       shell: bash
     - uses: the-iron-bank-of-braavos/workflow-dispatch-action@main
