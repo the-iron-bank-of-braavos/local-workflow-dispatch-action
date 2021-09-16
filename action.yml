@@ -63,10 +63,8 @@ runs:
         git pull
         curl -H 'Authorization: token ${{ inputs.token }}' https://raw.githubusercontent.com/${{ inputs.external-repository }}/${{ inputs.external-ref }}/.github/workflows/${{ inputs.workflow }} -o .github/workflows/${{ inputs.workflow }}
         cat .github/workflows/${{ inputs.workflow }}
-      shell: bash     
-     
-    - run: git branch ${{ inputs.ref }}
-      shell: bash
+        git branch ${{ inputs.ref }}
+      shell: bash          
      
     - uses: actions-js/push@master
       with:
@@ -87,4 +85,3 @@ runs:
 branding:
   icon: 'target'
   color: 'gray-dark'
-
