@@ -21,7 +21,7 @@ inputs:
   external-ref:
     description: > 
         Branch where external workflow is located
-    default: temp
+    default: master
   workflow:
     description: >
         Workflow filename. Required.
