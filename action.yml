@@ -82,7 +82,7 @@ runs:
         workflow: ${{ inputs.workflow }}
         inputs: ${{ inputs.inputs }}
         
-    - run: git push -d temp
+    - run: git push -d origin temp
       shell: bash
          
 branding:
