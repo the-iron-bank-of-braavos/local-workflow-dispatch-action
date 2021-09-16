@@ -18,6 +18,10 @@ inputs:
     description: > 
         Branch, tag or commit. Default: Current ref ( github.ref )
     default: ${{ github.ref }}
+  external-ref:
+    description: > 
+        Branch where external workflow is located
+    default: temp
   workflow:
     description: >
         Workflow filename. Required.
@@ -57,7 +61,7 @@ runs:
   
     - run: |
         git pull
-        curl -H 'Authorization: token ${{ inputs.token }}' https://raw.githubusercontent.com/${{ inputs.external-repository }}/${{ inputs.ref }}/.github/workflows/${{ inputs.workflow }} -o .github/workflows/${{ inputs.workflow }}
+        curl -H 'Authorization: token ${{ inputs.token }}' https://raw.githubusercontent.com/${{ inputs.external-repository }}/${{ inputs.external-ref }}/.github/workflows/${{ inputs.workflow }} -o .github/workflows/${{ inputs.workflow }}
         cat .github/workflows/${{ inputs.workflow }}
       shell: bash     
      
