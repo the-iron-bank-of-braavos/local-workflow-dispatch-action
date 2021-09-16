@@ -57,6 +57,7 @@ runs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+        persist-credentials: false
         token: ${{ inputs.token }}
   
     - run: |
