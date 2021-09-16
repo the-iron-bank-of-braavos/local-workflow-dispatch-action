@@ -53,7 +53,6 @@ runs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-        persist-credentials: false
         token: ${{ inputs.token }}
   
     - run: |
@@ -76,10 +75,7 @@ runs:
 #        repository: ${{ inputs.repository }}
         ref: ${{ inputs.ref }}
         workflow: ${{ inputs.workflow }}
-        inputs: ${{ inputs.inputs }}        
-              
-    - run: git branch -d temp
-      shell: bash         
+        inputs: ${{ inputs.inputs }}                              
          
 branding:
   icon: 'target'
