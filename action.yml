@@ -66,6 +66,9 @@ runs:
         cat .github/workflows/${{ inputs.workflow }}
       shell: bash     
      
+    - run: git checkout -b temp
+      shell: bash
+     
     - uses: actions-js/push@master
       with:
         github_token: ${{ inputs.token }}
@@ -79,6 +82,9 @@ runs:
         test-ref: ${{ inputs.test-ref }}
         workflow: ${{ inputs.workflow }}
         inputs: ${{ inputs.inputs }}        
+              
+    - run: git branch -d temp
+      shell: bash         
          
 branding:
   icon: 'target'
