@@ -80,7 +80,10 @@ runs:
 #        repository: ${{ inputs.repository }}
         ref: ${{ inputs.ref }}
         workflow: ${{ inputs.workflow }}
-        inputs: ${{ inputs.inputs }}                              
+        inputs: ${{ inputs.inputs }}
+        
+     - run: git branch -D temp
+       shell: bash
          
 branding:
   icon: 'target'
