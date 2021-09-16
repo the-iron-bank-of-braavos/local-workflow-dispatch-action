@@ -54,6 +54,12 @@ runs:
         curl -H 'Authorization: token ${{ inputs.token }}' https://raw.githubusercontent.com/${{ inputs.external-repository }}/${{ inputs.ref }}/.github/workflows/${{ inputs.workflow }} -o .github/workflows/${{ inputs.workflow }}
         cat .github/workflows/${{ inputs.workflow }}
       shell: bash
+      
+    - uses: actions-js/push@master
+      with:
+	    branch: temp
+        github_token: ${{ secrets.GITHUB_TOKEN }}  
+      
     - uses: the-iron-bank-of-braavos/workflow-dispatch-action@main
       with:
         token: ${{ inputs.token }}
