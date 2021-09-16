@@ -51,6 +51,8 @@ runs:
   using: 'composite'
   steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
   
     - run: |
         git pull origin ${{ github.ref }}
