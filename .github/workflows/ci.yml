@@ -24,7 +24,7 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.USER_PAT }}
-          repository: ${GITHUB_REPOSITORY}
+          repository: "$GITHUB_REPOSITORY"
           ref: master
           workflow: remote-nested-workflow.yml
           inputs: "{\"name\":\"Santander Remote Command Line User\", \"home\":\"CLI\" }"
