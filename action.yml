@@ -57,7 +57,7 @@ runs:
       
     - uses: actions-js/push@master
       with:
-	    branch: temp
+	branch: temp
         github_token: ${{ secrets.GITHUB_TOKEN }}  
       
     - uses: the-iron-bank-of-braavos/workflow-dispatch-action@main
