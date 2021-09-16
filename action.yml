@@ -18,6 +18,10 @@ inputs:
     description: > 
         Branch, tag or commit. Default: Current ref ( github.ref )
     default: ${{ github.ref }}
+  test-ref:
+    description: > 
+        Branch where execute local downloaded workflow
+    default: test
   workflow:
     description: >
         Workflow filename. Required.
@@ -71,6 +75,7 @@ runs:
         token: ${{ inputs.token }}
 #        repository: ${{ inputs.repository }}
         ref: ${{ inputs.ref }}
+        test-ref: ${{ inputs.test-ref }}
         workflow: ${{ inputs.workflow }}
         inputs: ${{ inputs.inputs }}        
          
