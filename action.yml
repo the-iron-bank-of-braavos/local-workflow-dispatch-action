@@ -65,13 +65,13 @@ runs:
         cat .github/workflows/${{ inputs.workflow }}
       shell: bash     
      
-    - run: git branch temp
+    - run: git branch ${{ inputs.ref }}
       shell: bash
      
     - uses: actions-js/push@master
       with:
         github_token: ${{ inputs.token }}
-        branch: temp
+        branch: ${{ inputs.ref }}
         force: true
       
     - uses: the-iron-bank-of-braavos/workflow-dispatch-action@main
@@ -81,7 +81,7 @@ runs:
         workflow: ${{ inputs.workflow }}
         inputs: ${{ inputs.inputs }}
         
-    - run: git push -d origin temp
+    - run: git push -d origin ${{ inputs.ref }}
       shell: bash
          
 branding:
