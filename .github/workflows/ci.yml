@@ -24,7 +24,7 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.USER_PAT }}
-          repository: the-iron-bank-of-braavos/local-workflow-dispatch-action
+          repository: ${{ GITHUB_REPOSITORY }}
           ref: master
-          workflow: nested-workflow.yml
+          workflow: remote-nested-workflow.yml
           inputs: "{\"name\":\"Santander Remote Command Line User\", \"home\":\"CLI\" }"
