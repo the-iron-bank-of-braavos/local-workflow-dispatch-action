@@ -82,8 +82,8 @@ runs:
         workflow: ${{ inputs.workflow }}
         inputs: ${{ inputs.inputs }}
         
-     - run: git branch -D temp
-       shell: bash
+    - run: git branch -D temp
+      shell: bash
          
 branding:
   icon: 'target'
