@@ -13,7 +13,7 @@ inputs:
   external-repository:
     description: >
          Repository where workflow is located
-     default: ''
+    default: ''
   ref:
     description: > 
         Branch, tag or commit. Default: Current ref ( github.ref )
