@@ -68,6 +68,7 @@ runs:
       with:
         github_token: ${{ inputs.token }}
         branch: temp
+        force: true
       
     - uses: the-iron-bank-of-braavos/workflow-dispatch-action@main
       with:
