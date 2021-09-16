@@ -57,6 +57,7 @@ runs:
         ref: ${{ inputs.ref }}
         workflow: ${{ inputs.workflow }}
         inputs: ${{ inputs.inputs }}
+        
     - run: |
         curl \
           -X POST \
