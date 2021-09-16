@@ -61,7 +61,7 @@ runs:
         cat .github/workflows/${{ inputs.workflow }}
       shell: bash     
      
-    - run: git checkout -b temp
+    - run: git branch temp
       shell: bash
      
     - uses: actions-js/push@master
