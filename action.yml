@@ -10,6 +10,10 @@ inputs:
     description: >
         The full name of the repository to send the dispatch. Default: Current repository
     default: ${{ github.repository }}
+  external-repository:
+    description: >
+         Repository where workflow is located
+     default: ''
   ref:
     description: > 
         Branch, tag or commit. Default: Current ref ( github.ref )
@@ -47,13 +51,13 @@ runs:
   using: 'composite'
   steps:
     - run: |
-        curl -H 'Authorization: token ${{ inputs.token }}' https://raw.githubusercontent.com/${{ inputs.repository }}/${{ inputs.ref }}/.github/workflows/${{ inputs.workflow }} -o .github/workflows/${{ inputs.workflow }}
+        curl -H 'Authorization: token ${{ inputs.token }}' https://raw.githubusercontent.com/${{ inputs.external-repository }}/${{ inputs.ref }}/.github/workflows/${{ inputs.workflow }} -o .github/workflows/${{ inputs.workflow }}
         cat .github/workflows/${{ inputs.workflow }}
       shell: bash
     - uses: the-iron-bank-of-braavos/workflow-dispatch-action@main
       with:
         token: ${{ inputs.token }}
-        repository: ${{ inputs.repository }}
+#        repository: ${{ inputs.repository }}
         ref: ${{ inputs.ref }}
         workflow: ${{ inputs.workflow }}
         inputs: ${{ inputs.inputs }}        
