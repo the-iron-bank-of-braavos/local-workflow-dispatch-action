@@ -83,7 +83,9 @@ runs:
         workflow: ${{ inputs.workflow }}
         inputs: ${{ inputs.inputs }}
         
-    - run: git push -d origin ${{ inputs.temp-ref }}
+    - run: |
+        sleep 5
+        git push -d origin ${{ inputs.temp-ref }}
       shell: bash
          
 branding:
