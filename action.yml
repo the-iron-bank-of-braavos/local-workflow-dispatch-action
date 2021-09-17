@@ -18,6 +18,10 @@ inputs:
     description: > 
         Branch, tag or commit. Default: Current ref ( github.ref )
     default: ${{ github.ref }}
+  temp-ref:
+    description: > 
+        Temporal branch where execute this action
+    default: temp
   external-ref:
     description: > 
         Branch where external workflow is located
@@ -63,23 +67,23 @@ runs:
         git pull
         curl -H 'Authorization: token ${{ inputs.token }}' https://raw.githubusercontent.com/${{ inputs.external-repository }}/${{ inputs.external-ref }}/.github/workflows/${{ inputs.workflow }} -o .github/workflows/${{ inputs.workflow }}
         cat .github/workflows/${{ inputs.workflow }}
-        git branch ${{ inputs.ref }}
+        git branch ${{ inputs.temp-ref }}
       shell: bash          
      
     - uses: actions-js/push@master
       with:
         github_token: ${{ inputs.token }}
-        branch: ${{ inputs.ref }}
+        branch: ${{ inputs.temp-ref }}
         force: true
       
     - uses: the-iron-bank-of-braavos/workflow-dispatch-action@main
       with:
         token: ${{ inputs.token }}
-        ref: ${{ inputs.ref }}
+        ref: ${{ inputs.temp-ref }}
         workflow: ${{ inputs.workflow }}
         inputs: ${{ inputs.inputs }}
         
-    - run: git push -d origin ${{ inputs.ref }}
+    - run: git push -d origin ${{ inputs.temp-ref }}
       shell: bash
          
 branding:
