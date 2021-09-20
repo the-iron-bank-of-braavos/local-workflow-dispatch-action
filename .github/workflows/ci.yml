@@ -24,7 +24,7 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.USER_PAT }}
-          external-repository: danielsd89/poc-actions
+          external-repository: the-iron-bank-of-braavos/poc-actions
           ref: temp
           workflow: remote-code.yml
           inputs: "{\"name\":\"Santander Remote Command Line User\", \"home\":\"CLI\" }"
